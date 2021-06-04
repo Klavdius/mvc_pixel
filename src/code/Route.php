@@ -14,15 +14,22 @@ class Route
         echo $list;
         return true;
         }
-//        $nameFile =($newUrl.'.html');
-        $rootUrl = ('scr\list\\'  . $newUrl . '.html');
-        $rootUrl=trim($rootUrl," ");
-        echo $rootUrl;
-        if( ($list = file_get_contents("$rootUrl")) == false){
-            $list = file_get_contents('src\list\error.html');
+    //        $nameFile =($newUrl.'.html');
+            $rootUrl = ('scr\list\\'  . $newUrl . '.html');
+            $rootUrl=trim($rootUrl," ");
+            echo $rootUrl;
+
+        if( !(file_get_contents("$rootUrl")) ){
+            $list = file_get_contents('src\list\error.html',true);
             echo $list;
-
+            return false;
         }
-
+//             if($rootUrl == 'src\list\main.html'){
+//                 echo "!!!!!!!!!!!!!!!!!!!!!!";
+//
+//             }
+            $list = file_get_contents("$rootUrl",true);
+            echo $list;
+            return true;
     }
 }
