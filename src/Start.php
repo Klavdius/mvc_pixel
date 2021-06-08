@@ -14,18 +14,19 @@ spl_autoload_register(function($className) {
 
 class Start
 {
-    public static function run(){
+    public static function run()
+    {
         $contant = "start all </br>";
+        echo $contant;
+        //Search url
+        if (empty($_SERVER['REQUEST_URI'])) {
+            $url = $_SERVER['PHP_SELF'] . (empty($_SERVER['QUERY_STRING']) ? '' : '?' . $_SERVER['QUERY_STRING']);
+        } else {
+            $url = $_SERVER['REQUEST_URI'];
+        }
 
-        $url = $_SERVER['REQUEST_URI'] ;
-        echo $url."</br>";
-       echo $contant;
-//        $url = $_SERVER['REQUEST_URI'];
-            $sepUrl = explode('/',$url,10);
-            echo "$sepUrl[1]"."</br>";
-        //print "$sepUrl[1]" . PHP_EOL;
-       $triger = Route::requst($sepUrl[1]);
-       if($triger == false){echo Ошибка;}
+        Route::requst($url);
+
 
     }
 

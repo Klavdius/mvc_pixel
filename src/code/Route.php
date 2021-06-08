@@ -9,25 +9,22 @@ class Route
     }
 
     public static function requst($newUrl){
-        if(empty($newUrl)){
+        //check for an empty url
+        $sep = explode('/',$newUrl);
+        if(empty($sep[1])){
            $list = file_get_contents('src\list\main.html',true);
-        echo $list;
         return true;
         }
-    //        $nameFile =($newUrl.'.html');
-            $rootUrl = ('scr\list\\'  . $newUrl . '.html');
+        //build main root
+            $rootUrl = ('src/list/' . "$newUrl" . '.html');
             $rootUrl=trim($rootUrl," ");
-            echo $rootUrl;
-
-        if( !(file_get_contents("$rootUrl")) ){
+         //check file in system
+        if(!(file_exists("$rootUrl")) ){
             $list = file_get_contents('src\list\error.html',true);
             echo $list;
             return false;
         }
-//             if($rootUrl == 'src\list\main.html'){
-//                 echo "!!!!!!!!!!!!!!!!!!!!!!";
-//
-//             }
+        //output file
             $list = file_get_contents("$rootUrl",true);
             echo $list;
             return true;
