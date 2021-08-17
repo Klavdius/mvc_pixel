@@ -18,13 +18,13 @@ class Route
        {
            $controller_name = $routes[1];
        }
-        echo $controller_name . "</br>";
+        //echo $controller_name . "</br>";
 
        if(!empty($routes[2]))
        {
            $action_name = $routes[2];
        }
-        echo $action_name. "</br>";
+       // echo $action_name. "</br>";
 
        $model_name = 'model_'.$controller_name;
        $controller_name = 'controller_'.$controller_name;
@@ -41,7 +41,7 @@ class Route
 
        $controller_file = strtolower($controller_name).'.php';
        $controller_path = "application/controllers/".$controller_file;
-         echo "controller path-- ". "$controller_path". "</br>";
+         //echo "controller path-- ". "$controller_path". "</br>";
        if(file_exists($controller_path))
        {
            include "application/controllers/".$controller_file;
@@ -71,36 +71,7 @@ class Route
         echo "file not found!!";
     }
     
-    public static function helloRoute(){
-        $mes = "Route say hello ";
-        return $mes;
-    }
 
-    public static function requst($newUrl){
-        //check for an empty url
-        $sep = explode('/',$newUrl);
-        if(empty($sep[1])){
-           $list = file_get_contents('src/code/main.php',true);
-        return true;
-        }
 
-        $rootUrl = Tools::DecodeUrl($newUrl);
-           $rootUrl = trim($rootUrl, " ");
-
-        if(!(file_exists("$rootUrl")) ){
-            echo $rootUrl . " по этому пути ищем " . br;
-            $list = file_get_contents('src\list\error.html',true);
-            echo $list;
-            return false;
-        }
-        //output file
-            $list = file_get_contents("$rootUrl",true);
-            echo $list;
-
-        if($rootUrl == 'src/code/main.php') {
-            Foreman::build();
-        }
-            return true;
-    }
 }
 
