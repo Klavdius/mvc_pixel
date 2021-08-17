@@ -1,4 +1,8 @@
 <?php
- require_once 'src/Start.php';
+    ini_set('display_error',1);
 
-Start::run();
+    require_once 'application/bootstrap.php';
+    //require_once 'application/php.php';
+// view - html разметка
+// controller - обработка запросов пользователя
+// model - обработка данных из контроллера для связи с бд

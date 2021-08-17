@@ -16,18 +16,14 @@ class Start
 {
     public static function run()
     {
-        $contant = "start all </br>";
-        echo $contant;
-        //Search url
-        if (empty($_SERVER['REQUEST_URI'])) {
-            $url = $_SERVER['PHP_SELF'] . (empty($_SERVER['QUERY_STRING']) ? '' : '?' . $_SERVER['QUERY_STRING']);
-        } else {
-            $url = $_SERVER['REQUEST_URI'];
-        }
-
-        Route::requst($url);
 
 
+
+    }
+
+    public static function bin($binCoin){
+        $dec = bindec($binCoin);
+        return $dec;
     }
 
 }
