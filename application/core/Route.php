@@ -13,7 +13,7 @@ class Route
        $action_name = 'index';
 
        $routes = explode('/', $_SERVER['REQUEST_URI']);
-
+//убрать индекс и делать всё без него. от 0 до 1.
        if(!empty($routes[1]))
        {
            $controller_name = $routes[1];
@@ -36,6 +36,7 @@ class Route
        $model_path = "application/models/".$model_file;
        if(file_exists($model_path))
        {
+           //подключение реквайр ons.
            include "application/models/".$model_file;
        }
 
@@ -48,6 +49,9 @@ class Route
        }
        else
        {
+           // контроллер для ошибок. перенести из роутера.
+
+
            Route::ErrorPage404();
        }
 
