@@ -20,7 +20,7 @@ class oldRoute
         Route::requst($url);
     }
     public static function helloRoute(){
-        $mes = "Route say hello ";
+        $mes = "route say hello ";
         return $mes;
     }
 
