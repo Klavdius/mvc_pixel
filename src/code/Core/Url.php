@@ -13,6 +13,9 @@ class Url
         if($getUrl == '/'){
             $getUrl = '/App/View/Main.phtml';
         }
+        if( (substr_count($getUrl,'/')) == 1){
+            $getUrl = '/App/View' . $getUrl . '.phtml';
+        }
         return $getUrl;
 
     }

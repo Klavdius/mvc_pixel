@@ -2,7 +2,7 @@
 //    echo '11';
     if(!($_POST['postStr'])){
 //        $postStac = $_POST[];
-        echo json_encode(['success' => 2]);
+        echo json_encode(['success' => 'Введите данные']);
     }else{
         $char = CalcController::feachChar($_POST['postStr']);
         $first = stristr($_POST['postStr'], $char, true);

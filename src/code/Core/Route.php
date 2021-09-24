@@ -8,7 +8,7 @@ define('br', "</br>");
 
 spl_autoload_register(function($className) {
     // $filePath = BASE_DIR . DS . 'src' . DS . 'code' . DS . str_replace('\\', DS, trim($className, '\\')) . '.php';
-    $filePath = BASE_DIR . DS . 'code' . DS.  str_replace('\\', DS, trim($className, '\\')) . '.php';
+    $filePath = BASE_DIR . DS .  str_replace('\\', DS, trim($className, '\\')) . '.php';
     if (file_exists($filePath)) {
         require_once $filePath;
     }
